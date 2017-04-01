@@ -35,6 +35,10 @@ const resizeImage = (imageURL, canvas, maxHeight) =>
     image.src = imageURL
   })
 
+/**
+ * A custom <input> that dynamically reads and resizes image files before
+ * submitting them to the server as data URLs. Also, shows a preview of the image.
+ */
 class ImageInput extends React.Component {
   static propTypes = {
     className: PropTypes.string,

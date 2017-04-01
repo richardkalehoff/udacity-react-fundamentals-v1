@@ -2,9 +2,8 @@ import React from 'react'
 import serializeForm from 'form-serialize'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
-//import AvatarFileInput from './AvatarFileInput'
-import ImageInput from './ImageInput'
 import * as ContactsAPI from './ContactsAPI'
+import ImageInput from './ImageInput'
 import './App.css'
 
 class ContactsApp extends React.Component {
