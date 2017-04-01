@@ -16,7 +16,7 @@ app.use((req, res, next) => {
     req.token = token
     next()
   } else {
-    res.status(402).send({
+    res.status(403).send({
       error: 'Please provide an Authorization header to identify yourself (can be whatever you want)'
     })
   }
