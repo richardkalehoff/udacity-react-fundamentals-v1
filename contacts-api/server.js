@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   const token = req.get('Authorization')
 
   if (token) {
-    req.token =token
+    req.token = token
     next()
   } else {
     res.status(402).send({
