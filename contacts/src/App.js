@@ -13,7 +13,7 @@ class ContactsApp extends React.Component {
   }
 
   updateQuery = (query) => {
-    this.setState({ query })
+    this.setState({ query: query.trim() })
   }
 
   clearQuery = () => {
