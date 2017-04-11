@@ -1,0 +1,56 @@
+html, body, .root {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  overflow: hidden;
+}
+body, .app {
+  background: #ffffff;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-title {
+  text-align: center;
+  background: #eee;
+}
+.app-title h1 {
+  font-family: serif;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.app-content {
+  padding: 20px 0 40px;
+  flex: 1;
+  overflow: auto;
+}
+
+.bookshelf,
+.bookshelf-title {
+  text-align: center;
+}
+
+.book-search-open {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+}
+.book-search-open a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: green;
+  background-image: url('./icons/add.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 28px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  font-size: 0;
+}
