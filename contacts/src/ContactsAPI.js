@@ -10,17 +10,17 @@ const headers = {
   'Authorization': token
 }
 
-export const getContacts = () =>
+export const getAll = () =>
   fetch(`${api}/contacts`, { headers })
     .then(res => res.json())
     .then(data => data.contacts)
 
-export const deleteContact = (contact) =>
+export const remove = (contact) =>
   fetch(`${api}/contacts/${contact.id}`, { method: 'DELETE', headers })
     .then(res => res.json())
     .then(data => data.contact)
 
-export const createContact = (body) =>
+export const create = (body) =>
   fetch(`${api}/contacts`, {
     method: 'POST',
     headers: {

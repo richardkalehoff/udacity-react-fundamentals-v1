@@ -31,7 +31,7 @@ class ContactsApp extends React.Component {
       contacts: state.contacts.filter(c => c.id !== contact.id)
     }))
 
-    ContactsAPI.deleteContact(contact)
+    ContactsAPI.remove(contact)
   }
 
   handleSubmit = (event) => {
@@ -41,7 +41,7 @@ class ContactsApp extends React.Component {
     const values = serializeForm(form, { hash: true })
 
     if (values.name && values.email) {
-      ContactsAPI.createContact(values).then(contact => {
+      ContactsAPI.create(values).then(contact => {
         this.addContact(contact)
         form.reset()
       })
@@ -51,7 +51,7 @@ class ContactsApp extends React.Component {
   }
 
   componentDidMount() {
-    ContactsAPI.getContacts().then(contacts => {
+    ContactsAPI.getAll().then(contacts => {
       this.setState({ contacts })
     })
   }
