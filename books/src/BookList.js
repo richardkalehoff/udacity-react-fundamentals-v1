@@ -6,7 +6,7 @@ const BookList = ({ books, onBookShelfChange }) => (
   <ol className="book-list">
     {books.map(book => (
       <li key={book.id}>
-        <div>
+        <div className="book">
           <BookCover book={book}/>
 
           <div className="book-list-shelf-changer">

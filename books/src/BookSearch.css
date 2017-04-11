@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   overflow: auto;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(70, 70, 70, 0.85);
 }
 
 .book-search-bar {
@@ -18,10 +18,11 @@
 }
 .book-search-bar input {
   width: 50%;
-  padding: 4px 5px;
+  padding: 7px 8px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0 0 15px 2px rgba(0,0,0,.35);
+  outline: none;
 }
 .book-search-close {
   position: absolute;
@@ -41,5 +42,5 @@
 }
 
 .book-search-results {
-  padding: 60px 0 20px;
+  padding: 70px 0 20px;
 }
