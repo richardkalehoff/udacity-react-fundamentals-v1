@@ -69,6 +69,10 @@ class BooksApp extends React.Component {
           <div className="app-content">
             {isLoading ? (
               <p>Loading your library...</p>
+            ) : books.length === 0 ? (
+              <div className="get-started">
+                <p>You haven't added any books yet. Use the button below to get started!</p>
+              </div>
             ) : (
               <div>
                 <h2 className="bookshelf-title">Currently Reading</h2>
