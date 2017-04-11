@@ -11,6 +11,10 @@ The Address Book project will be completed by students as they complete the cour
 
 ## Development
 
+We use [yarn](https://yarnpkg.com/) in development, so make sure that's installed first. If you already have [npm](https://www.npmjs.com/) installed, it's just:
+
+    $ npm install -g yarn
+
 To start the project, first start the API server in the `contacts-api` directory using:
 
     $ yarn install
@@ -18,6 +22,7 @@ To start the project, first start the API server in the `contacts-api` directory
 
 Then start the client app in the `contacts` directory using:
 
+    $ yarn install
     $ yarn start
 
 A browser window should open automatically with the app.
