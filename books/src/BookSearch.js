@@ -7,7 +7,7 @@ import './BookSearch.css'
 class BookSearch extends React.Component {
   state = {
     books: [],
-    query: 'harry pott'
+    query: ''
   }
 
   execSearch = (query) => {
