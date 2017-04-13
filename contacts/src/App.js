@@ -1,7 +1,7 @@
 import React from 'react'
+import sortBy from 'sort-by'
 import serializeForm from 'form-serialize'
 import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
 import * as ContactsAPI from './ContactsAPI'
 import ImageInput from './ImageInput'
 import './App.css'
@@ -80,13 +80,11 @@ class ContactsApp extends React.Component {
           />
         </div>
 
-        {showingContacts.length !== contacts.length ? (
+        {showingContacts.length !== contacts.length && (
           <div className="showing-contacts">
             <span>Now showing {showingContacts.length} of {contacts.length} total</span>
             <button onClick={this.clearQuery}>Show all</button>
           </div>
-        ) : (
-          null
         )}
 
         <ol className="contact-list">
