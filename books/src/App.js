@@ -50,9 +50,9 @@ class BooksApp extends React.Component {
 
     return (
       <BrowserRouter>
-        <div>
+        <div className="app">
           <Route exact path="/" render={() => (
-            <div className="app">
+            <div>
               <div className="app-title">
                 <h1>MyReads</h1>
               </div>
@@ -102,9 +102,7 @@ class BooksApp extends React.Component {
           )}/>
 
           <Route path="/search" render={() => (
-            <div className="app">
-              <BookSearch onBookShelfChange={this.handleBookShelfChange}/>
-            </div>
+            <BookSearch onBookShelfChange={this.handleBookShelfChange}/>
           )}/>
         </div>
       </BrowserRouter>

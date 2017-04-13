@@ -1,23 +1,20 @@
 .app {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .app-title {
+  padding: 10px 0;
   background: #2e7c31;
   text-align: center;
-  color: white;
 }
 .app-title h1 {
   font-weight: 400;
-  margin: 10px 0;
+  margin: 0;
+  color: white;
 }
 
 .app-content {
   padding: 20px 0 40px;
   flex: 1;
-  overflow: auto;
 }
 
 .loading-message,
