@@ -1,5 +1,6 @@
 import React from 'react'
 import throttle from 'lodash.throttle'
+import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import BookList from './BookList'
 import './BookSearch.css'
@@ -20,8 +21,9 @@ class BookSearch extends React.Component {
   }
 
   updateQuery(query) {
-    if (query)
+    if (query) {
       this.execSearch(query)
+    }
 
     this.setState({
       books: [],
@@ -57,10 +59,7 @@ class BookSearch extends React.Component {
             placeholder="search by title, author, or ISBN"
           />
 
-          <button
-            className="book-search-close"
-            onClick={this.props.onClose}
-          >Close</button>
+          <Link className="book-search-close-link" to="/">Close</Link>
         </div>
 
         <div className="book-search-results">

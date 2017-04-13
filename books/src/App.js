@@ -5,12 +5,12 @@ import BookSearch from './BookSearch'
 import BookList from './BookList'
 import './App.css'
 
-const Bookshelf = ({ books, onBookShelfChange }) => (
-  <div className="bookshelf">
+const BookshelfBooks = ({ books, onBookShelfChange }) => (
+  <div className="bookshelf-books">
     {books.length ? (
       <BookList books={books} onBookShelfChange={onBookShelfChange}/>
     ) : (
-      <p><em>No books here!</em></p>
+      <p><em>No books here! <Link to="/search">Add some</Link></em></p>
     )}
   </div>
 )
@@ -50,51 +50,62 @@ class BooksApp extends React.Component {
 
     return (
       <BrowserRouter>
-        <div className="app">
-          <div className="book-search-open">
-            <Link to="/search">Add a book</Link>
-          </div>
+        <div>
+          <Route exact path="/" render={() => (
+            <div className="app">
+              <div className="app-title">
+                <h1>MyReads</h1>
+              </div>
 
-          <Route path="/search" render={({ history }) => (
-            <BookSearch
-              onBookShelfChange={this.handleBookShelfChange}
-              onClose={() => history.push('/')}
-            />
+              <div className="app-content">
+                {isLoading ? (
+                  <div className="loading-message">
+                    <p>Loading your library...</p>
+                  </div>
+                ) : books.length === 0 ? (
+                  <div className="getting-started">
+                    <p>You don't have any books yet. <Link to="/search">Add some</Link></p>
+                  </div>
+                ) : (
+                  <div>
+                    <div className="bookshelf">
+                      <h2 className="bookshelf-title">Currently Reading</h2>
+                      <BookshelfBooks
+                        books={currentlyReading}
+                        onBookShelfChange={this.handleBookShelfChange}
+                      />
+                    </div>
+
+                    <div className="bookshelf">
+                      <h2 className="bookshelf-title">Want to Read</h2>
+                      <BookshelfBooks
+                        books={wantToRead}
+                        onBookShelfChange={this.handleBookShelfChange}
+                      />
+                    </div>
+
+                    <div className="bookshelf">
+                      <h2 className="bookshelf-title">Read</h2>
+                      <BookshelfBooks
+                        books={read}
+                        onBookShelfChange={this.handleBookShelfChange}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="open-search">
+                <Link to="/search">Add a book</Link>
+              </div>
+            </div>
           )}/>
 
-          <div className="app-title">
-            <h1>MyReads</h1>
-          </div>
-
-          <div className="app-content">
-            {isLoading ? (
-              <p>Loading your library...</p>
-            ) : books.length === 0 ? (
-              <div className="get-started">
-                <p>You don't have any books yet. <Link to="/search">Add some</Link></p>
-              </div>
-            ) : (
-              <div>
-                <h2 className="bookshelf-title">Currently Reading</h2>
-                <Bookshelf
-                  books={currentlyReading}
-                  onBookShelfChange={this.handleBookShelfChange}
-                />
-
-                <h2 className="bookshelf-title">Want to Read</h2>
-                <Bookshelf
-                  books={wantToRead}
-                  onBookShelfChange={this.handleBookShelfChange}
-                />
-
-                <h2 className="bookshelf-title">Read</h2>
-                <Bookshelf
-                  books={read}
-                  onBookShelfChange={this.handleBookShelfChange}
-                />
-              </div>
-            )}
-          </div>
+          <Route path="/search" render={() => (
+            <div className="app">
+              <BookSearch onBookShelfChange={this.handleBookShelfChange}/>
+            </div>
+          )}/>
         </div>
       </BrowserRouter>
     )

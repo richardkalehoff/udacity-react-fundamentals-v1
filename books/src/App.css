@@ -5,11 +5,12 @@
 }
 
 .app-title {
+  background: #2e7c31;
   text-align: center;
-  background: #eee;
+  color: white;
 }
 .app-title h1 {
-  font-weight: 700;
+  font-weight: 400;
   margin: 10px 0;
 }
 
@@ -19,23 +20,32 @@
   overflow: auto;
 }
 
-.get-started,
-.bookshelf,
-.bookshelf-title {
+.loading-message,
+.getting-started {
   text-align: center;
 }
 
-.book-search-open {
+.bookshelf {
+  padding: 20px;
+}
+.bookshelf-title {
+  border-bottom: 1px solid #dedede;
+}
+.bookshelf-books {
+  text-align: center;
+}
+
+.open-search {
   position: fixed;
   right: 25px;
   bottom: 25px;
 }
-.book-search-open a {
+.open-search a {
   display: block;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: green;
+  background: #2e7d32;
   background-image: url('./icons/add.svg');
   background-repeat: no-repeat;
   background-position: center;

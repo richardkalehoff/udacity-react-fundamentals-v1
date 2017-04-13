@@ -1,39 +1,72 @@
 import React from 'react'
 import './BookCover.css'
 
-const BookCover = ({ book, height = 200 }) => {
-  const style = {
-    height,
-    width: Math.round(height * 0.66)
+class BookCover extends React.Component {
+  static defaultProps = {
+    maxHeight: 200
   }
 
-  let link
-  if (book.imageLinks) {
-    link = book.imageLinks.thumbnail
+  state = {
+    image: null
+  }
 
-    // Remove the edge=curl query param if present.
-    if (link.indexOf('&edge=curl') > 0) {
-      link = link.replace('&edge=curl', '')
+  componentDidMount() {
+    const { book } = this.props
+
+    if (book.imageLinks) {
+      let link = book.imageLinks.thumbnail
+
+      // Remove the edge=curl query param if present.
+      if (link.indexOf('&edge=curl') > 0) {
+        link = link.replace('&edge=curl', '')
+      }
+
+      const image = new Image()
+
+      image.onload = () => {
+        if (!this.__isUnmounted) {
+          this.setState({ image })
+        }
+      }
+
+      image.src = link
     }
   }
 
-  return (
-    <div className="book-cover" style={style}>
-      {link ? (
-        <div className="book-cover-image" style={{
-          backgroundImage: `url("${link}")`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: 'contain'
-        }}/>
-      ) : (
-        <div className="book-cover-info">
-          <div className="book-cover-title">{book.title}</div>
-          {book.authors && <div className="book-cover-author">{book.authors.join(', ')}</div>}
-        </div>
-      )}
-    </div>
-  )
+  componentWillUnmount() {
+    this.__isUnmounted = true
+  }
+
+  render() {
+    const { book, maxHeight } = this.props
+    const { image } = this.state
+
+    const style = {}
+    let children
+
+    if (image) {
+      if (image.height > maxHeight) {
+        style.width = (maxHeight / image.height) * image.width
+        style.height = maxHeight
+      } else {
+        style.height = image.height
+        style.width = image.width
+      }
+
+      style.backgroundImage = `url("${image.src}")`
+    } else {
+      style.height = maxHeight
+      style.width = Math.round(style.height * 0.66)
+
+      children = (
+        <div className="book-cover-title">{book.title}</div>
+      )
+    }
+
+    return (
+      <div className="book-cover" style={style} children={children}/>
+    )
+  }
 }
 
 export default BookCover

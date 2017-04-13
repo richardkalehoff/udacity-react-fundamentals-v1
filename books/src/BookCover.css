@@ -1,27 +1,9 @@
 .book-cover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  overflow: hidden;
-}
-
-.book-cover-image {
-  height: 100%;
-  width: 100%;
-}
-
-.book-cover-info {
-  padding: 10px;
-  height: 100%;
-  text-align: center;
-  font-size: 1em;
   background: #eee;
 }
 .book-cover-title {
-  padding-top: 20px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.book-cover-author {
-  margin-top: 5px;
-  font-style: italic;
+  padding: 20px 10px 0;
+  text-align: center;
+  font-size: 0.8em;
 }
