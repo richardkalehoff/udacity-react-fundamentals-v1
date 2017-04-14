@@ -3,7 +3,7 @@ import './BookCover.css'
 
 class BookCover extends React.Component {
   static defaultProps = {
-    maxHeight: 200
+    maxWidth: 140
   }
 
   state = {
@@ -17,16 +17,14 @@ class BookCover extends React.Component {
       let link = book.imageLinks.thumbnail
 
       // Remove the edge=curl query param if present.
-      if (link.indexOf('&edge=curl') > 0) {
+      if (link.indexOf('&edge=curl') > 0)
         link = link.replace('&edge=curl', '')
-      }
 
       const image = new Image()
 
       image.onload = () => {
-        if (!this.__isUnmounted) {
+        if (!this.__isUnmounted)
           this.setState({ image })
-        }
       }
 
       image.src = link
@@ -38,26 +36,25 @@ class BookCover extends React.Component {
   }
 
   render() {
-    const { book, maxHeight } = this.props
+    const { book, maxWidth } = this.props
     const { image } = this.state
 
     const style = {}
     let children
 
     if (image) {
-      if (image.height > maxHeight) {
-        style.width = (maxHeight / image.height) * image.width
-        style.height = maxHeight
+      if (image.width > maxWidth) {
+        style.width = maxWidth
+        style.height = Math.floor((maxWidth / image.width) * image.height)
       } else {
-        style.height = image.height
         style.width = image.width
+        style.height = image.height
       }
 
       style.backgroundImage = `url("${image.src}")`
     } else {
-      style.height = maxHeight
-      style.width = Math.round(style.height * 0.66)
-
+      style.width = maxWidth
+      style.height = Math.round(style.width * 1.33)
       children = (
         <div className="book-cover-title">{book.title}</div>
       )

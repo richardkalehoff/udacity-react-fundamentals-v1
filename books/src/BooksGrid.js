@@ -1,9 +1,9 @@
 import React from 'react'
 import BookCover from './BookCover'
-import './BookList.css'
+import './BooksGrid.css'
 
-const BookList = ({ books, onBookShelfChange }) => (
-  <ol className="book-list">
+const BooksGrid = ({ books, onBookShelfChange }) => (
+  <ol className="books-grid">
     {books.map(book => (
       <li key={book.id}>
         <div className="book">
@@ -32,4 +32,4 @@ const BookList = ({ books, onBookShelfChange }) => (
   </ol>
 )
 
-export default BookList
+export default BooksGrid

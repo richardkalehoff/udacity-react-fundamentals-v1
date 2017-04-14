@@ -1,4 +1,4 @@
-.book-list {
+.books-grid {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -7,15 +7,13 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-.book-list li {
-  width: 140px;
+.books-grid li {
   padding: 10px 15px;
   text-align: left;
-
-  background: white;
 }
 
 .book {
+  width: 140px;
 }
 .book-title,
 .book-authors {
@@ -43,7 +41,7 @@
   height: 40px;
   border-radius: 50%;
   background: #60ac5d;
-  background-image: url('./icons/arrow_drop_down.svg');
+  background-image: url('./icons/arrow-drop-down.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;

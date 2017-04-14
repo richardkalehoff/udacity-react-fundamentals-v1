@@ -2,10 +2,10 @@ import React from 'react'
 import throttle from 'lodash.throttle'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
-import BookList from './BookList'
-import './BookSearch.css'
+import BooksGrid from './BooksGrid'
+import './SearchBooks.css'
 
-class BookSearch extends React.Component {
+class SearchBooks extends React.Component {
   state = {
     books: [],
     query: ''
@@ -49,21 +49,23 @@ class BookSearch extends React.Component {
     const { books, query } = this.state
 
     return (
-      <div className="book-search">
-        <div className="book-search-bar">
-          <input
-            type="search"
-            value={query}
-            onChange={event => this.updateQuery(event.target.value)}
-            ref={node => this.input = node}
-            placeholder="search by title, author, or ISBN"
-          />
+      <div className="search-books">
+        <div className="search-books-bar">
+          <Link className="close-search" to="/">Close</Link>
 
-          <Link className="book-search-close-link" to="/">Close</Link>
+          <div className="search-books-input-wrapper">
+            <input
+              type="text"
+              value={query}
+              onChange={event => this.updateQuery(event.target.value)}
+              ref={node => this.input = node}
+              placeholder="Search by title, author, or ISBN"
+            />
+          </div>
         </div>
 
-        <div className="book-search-results">
-          <BookList
+        <div className="search-books-results">
+          <BooksGrid
             books={books}
             onBookShelfChange={this.props.onBookShelfChange}
           />
@@ -73,4 +75,4 @@ class BookSearch extends React.Component {
   }
 }
 
-export default BookSearch
+export default SearchBooks
