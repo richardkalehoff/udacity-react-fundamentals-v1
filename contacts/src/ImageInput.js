@@ -95,11 +95,7 @@ class ImageInput extends React.Component {
 
     return (
       <div className={className} style={style}>
-        <input
-          type="hidden"
-          name={name}
-          value={value}
-        />
+        <input type="hidden" name={name} value={value} />
         <input
           ref={node => this.fileInput = node}
           type="file"
