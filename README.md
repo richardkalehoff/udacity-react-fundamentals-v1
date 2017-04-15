@@ -5,7 +5,7 @@ Projects are designed to showcase concepts that are important to using React. Ea
 There are currently 2 projects:
 
   1. [`contacts`](contacts) - to be completed by students during the course
-  2. [`books`](books) - to be completed by students as an assessment
+  2. [`books`](books) - to be completed by students during the assessment
 
 ## Development
 
