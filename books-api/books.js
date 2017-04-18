@@ -4,9 +4,9 @@ const clone = require('clone')
 const db = {}
 
 const defaultData = {
-  currentlyReading: [],
-  wantToRead: [],
-  read: []
+  currentlyReading: [ 'wO3PCgAAQBAJ', 'PGR2AwAAQBAJ' ],
+  wantToRead: [ '_oaAHiFOZmgC', 'uu1mC6zWNTwC' ],
+  read: [ 'wrOQLV6xB-wC', 'pD6arNyKyi8C', 'A4xbYvAclCYC', '32haAAAAMAAJ' ]
 }
 
 const getData = (token) => {

@@ -12,18 +12,18 @@ class SearchBooks extends React.Component {
   }
 
   execSearch = (query) => {
-    const search = this.search = BooksAPI.search(query).then(books => {
+    const search = this.currentSearch = BooksAPI.search(query).then(books => {
       // setState only for the current search result.
-      if (this.search === search) {
+      if (this.currentSearch === search)
         this.setState({ books })
-      }
     })
   }
 
   updateQuery(query) {
-    if (query) {
+    this.currentSearch = null
+
+    if (query)
       this.execSearch(query)
-    }
 
     this.setState({
       books: [],
@@ -35,14 +35,14 @@ class SearchBooks extends React.Component {
     this.input.focus()
 
     this.execSearch = throttle(this.execSearch, 1000, {
-      leading: false
+      leading: false,
+      trailing: true
     })
 
     const { query } = this.state
 
-    if (query) {
+    if (query)
       this.execSearch(query)
-    }
   }
 
   render() {
