@@ -21,7 +21,7 @@ class BooksApp extends React.Component {
             <div className="search-books-bar">
               <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
               <div className="search-books-input-wrapper">
-                <input type="text" value="" placeholder="Search by title, author, or ISBN"/>
+                <input type="text" placeholder="Search by title, author, or ISBN"/>
               </div>
             </div>
             <div className="search-books-results">
