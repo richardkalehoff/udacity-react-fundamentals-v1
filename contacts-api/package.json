@@ -1,6 +1,4 @@
 {
-  "private": true,
-  "name": "contacts-api",
   "dependencies": {
     "body-parser": "^1.17.1",
     "clone": "^2.1.1",
