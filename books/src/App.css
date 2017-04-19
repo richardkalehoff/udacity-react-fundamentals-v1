@@ -7,3 +7,7 @@ body {
 body, .app {
   background: white;
 }
+
+.loading-message {
+  text-align: center;
+}

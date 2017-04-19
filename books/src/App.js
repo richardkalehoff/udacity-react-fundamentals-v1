@@ -7,12 +7,13 @@ import './App.css'
 
 class BooksApp extends React.Component {
   state = {
-    books: []
+    books: [],
+    isLoading: true
   }
 
   componentDidMount() {
     BooksAPI.getAll().then(books => {
-      this.setState({ books })
+      this.setState({ books, isLoading: false })
     })
   }
 
@@ -31,16 +32,20 @@ class BooksApp extends React.Component {
   }
 
   render() {
-    const { books } = this.state
+    const { books, isLoading } = this.state
 
     return (
       <BrowserRouter>
         <div className="app">
           <Route exact path="/" render={() => (
-            <ListBooks
-              books={books}
-              onBookShelfChange={this.handleBookShelfChange}
-            />
+            isLoading ? (
+              <p className="loading-message">Loading...</p>
+            ) : (
+              <ListBooks
+                books={books}
+                onBookShelfChange={this.handleBookShelfChange}
+              />
+            )
           )}/>
 
           <Route path="/search" render={() => (
