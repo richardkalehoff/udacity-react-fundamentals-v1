@@ -40,7 +40,7 @@ const addShelf = (token) => (book) => {
 
 const api = 'https://www.googleapis.com/books/v1'
 
-const createBook = (item) => console.log(item) || Object.assign({}, item.volumeInfo, {
+const createBook = (item) => Object.assign({}, item.volumeInfo, {
   id: item.id
 })
 

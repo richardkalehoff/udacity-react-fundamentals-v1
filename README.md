@@ -1,4 +1,4 @@
-This repo contains the project material for Udacity's React Fundamentals course, developed by React Training.
+This repo contains the projects for Udacity's React Fundamentals course, developed by React Training.
 
 Projects are designed to showcase concepts that are important to using React. Each project has an API server that serves as a backend for the React app. This is designed to give students a hands-on experience dealing with how data flows from the server to the client in various real-world scenarios.
 
@@ -6,6 +6,8 @@ There are currently 2 projects:
 
   1. [`contacts`](contacts) - to be completed by students during the course
   2. [`books`](books) - to be completed by students during the assessment
+
+Additionally, there is a starter template for the assessment project in the [`books-starter`](books-starter) directory. This is a static HTML + CSS version of the final project that may serve as a starting point for students who don't want to write their own markup from scratch.
 
 ## Development
 
