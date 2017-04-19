@@ -18,6 +18,8 @@ To start a project, first start the API server in its corresponding "api" direct
     $ yarn install
     $ yarn start
 
+Note: The `books-api` server requires a `GOOGLE_BOOKS_API_KEY` environment variable in order to make requests to the Google Books API. You can either set this variable in your shell when you start the server or in [a `.env` file](https://github.com/motdotla/dotenv) in the `books-api` directory.
+
 Then start the client app in its directory (e.g. `contacts`) using:
 
     $ yarn install
