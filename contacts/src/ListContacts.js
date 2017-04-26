@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
 import * as ContactsAPI from './ContactsAPI'
-import './ListContacts.css'
 
 class ListContacts extends React.Component {
   static propTypes = {
@@ -46,14 +45,13 @@ class ListContacts extends React.Component {
     return (
       <div className="list-contacts">
         <div className="list-contacts-top">
-          <div className="search-contacts">
-            <input
-              type="text"
-              value={query}
-              onChange={event => this.updateQuery(event.target.value)}
-              placeholder="Search contacts"
-            />
-          </div>
+          <input
+            className="search-contacts"
+            type="text"
+            value={query}
+            onChange={event => this.updateQuery(event.target.value)}
+            placeholder="Search contacts"
+          />
 
           <Link className="add-contact" to="/create">Add a New Contact</Link>
         </div>
@@ -72,12 +70,11 @@ class ListContacts extends React.Component {
                 backgroundImage: `url(${contact.avatarURL})`
               }}/>
               <div className="contact-details">
-                <p className="contact-name">{contact.name}</p>
-                <p className="contact-email">{contact.email}</p>
+                <p>{contact.name}</p>
+                <p>{contact.email}</p>
               </div>
-              <div className="contact-remove">
-                <button onClick={() => this.handleDelete(contact)}>Remove</button>
-              </div>
+              <button className="contact-remove"onClick={() => this.handleDelete(contact)}>Remove
+              </button>
             </li>
           ))}
         </ol>

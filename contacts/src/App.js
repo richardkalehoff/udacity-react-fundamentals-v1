@@ -3,7 +3,6 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import * as ContactsAPI from './ContactsAPI'
 import CreateContact from './CreateContact'
 import ListContacts from './ListContacts'
-import './App.css'
 
 class ContactsApp extends React.Component {
   state = {
