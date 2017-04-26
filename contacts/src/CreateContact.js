@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import serializeForm from 'form-serialize'
-import * as ContactsAPI from './ContactsAPI'
+import * as ContactsAPI from './utils/ContactsAPI'
 import ImageInput from './ImageInput'
 
 class CreateContact extends React.Component {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
-import * as ContactsAPI from './ContactsAPI'
+import * as ContactsAPI from './utils/ContactsAPI'
 
 class ListContacts extends React.Component {
   static propTypes = {
