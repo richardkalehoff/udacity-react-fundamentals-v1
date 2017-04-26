@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import serializeForm from 'form-serialize'
 import * as ContactsAPI from './ContactsAPI'
 import ImageInput from './ImageInput'
-import './CreateContact.css'
 
 class CreateContact extends React.Component {
   static propTypes = {
@@ -29,21 +28,15 @@ class CreateContact extends React.Component {
 
   render() {
     return (
-      <div className="create-contact">
+      <div>
         <Link className="close-create-contact" to="/">Close</Link>
 
-        <form onSubmit={this.handleSubmit}>
-          <div className="create-contact-wrapper">
-            <div className="create-contact-avatar">
-              <ImageInput className="create-contact-avatar-input" name="avatarURL" maxHeight={64}/>
-            </div>
-            <div className="create-contact-details">
-              <input className="create-contact-name" type="text" name="name" placeholder="Name"/>
-              <input className="create-contact-email" type="text" name="email" placeholder="Email"/>
-              <div className="create-contact-save">
-                <button>Add Contact</button>
-              </div>
-            </div>
+        <form className="create-contact-form" onSubmit={this.handleSubmit}>
+          <ImageInput className="create-contact-avatar-input" name="avatarURL" maxHeight={64}/>
+          <div className="create-contact-details">
+            <input type="text" name="name" placeholder="Name"/>
+            <input type="text" name="email" placeholder="Email"/>
+            <button>Add Contact</button>
           </div>
         </form>
       </div>
