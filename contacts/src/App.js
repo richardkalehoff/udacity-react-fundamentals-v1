@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import * as ContactsAPI from './ContactsAPI'
+import * as ContactsAPI from './utils/ContactsAPI'
 import CreateContact from './CreateContact'
 import ListContacts from './ListContacts'
 
