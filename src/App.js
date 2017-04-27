@@ -15,6 +15,12 @@ class App extends Component {
     })
   }
 
+  addContact = (contact) => {
+    this.setState(state => ({
+      contacts: state.contacts.concat(contact)
+    }))
+  }
+
   removeContact = (contact) => {
     this.setState(state => ({
       contacts: state.contacts.filter(c => c.id !== contact.id)
@@ -32,6 +38,13 @@ class App extends Component {
               contacts={this.state.contacts}
               onDeleteContact={this.removeContact}
             />
+          )}/>
+
+          <Route path="/create" render={({ history }) => (
+            <CreateContact onCreateContact={contact => {
+              this.addContact(contact)
+              history.push('/')
+            }}/>
           )}/>
         </div>
       </BrowserRouter>
