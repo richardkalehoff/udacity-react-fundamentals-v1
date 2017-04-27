@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
-import * as ContactsAPI from './utils/ContactsAPI'
+import { Link } from 'react-router-dom'
 
 class ListContacts extends React.Component {
   static propTypes = {
@@ -23,13 +22,8 @@ class ListContacts extends React.Component {
     this.setState({ query: '' })
   }
 
-  handleDelete = (contact) => {
-    ContactsAPI.remove(contact)
-    this.props.onDeleteContact(contact)
-  }
-
   render() {
-    const { contacts } = this.props
+    const { contacts, onDeleteContact } = this.props
     const { query } = this.state
 
     let showingContacts
@@ -73,7 +67,8 @@ class ListContacts extends React.Component {
                 <p>{contact.name}</p>
                 <p>{contact.email}</p>
               </div>
-              <button className="contact-remove"onClick={() => this.handleDelete(contact)}>Remove
+              <button className="contact-remove" onClick={() => onDeleteContact(contact)}>
+                Remove
               </button>
             </li>
           ))}

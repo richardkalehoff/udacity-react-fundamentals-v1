@@ -1,10 +1,10 @@
-import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import React, { Component } from 'react';
+import ListContacts from './ListContacts'
 import * as ContactsAPI from './utils/ContactsAPI'
 import CreateContact from './CreateContact'
-import ListContacts from './ListContacts'
+import { BrowserRouter, Route } from 'react-router-dom'
 
-class ContactsApp extends React.Component {
+class App extends Component {
   state = {
     contacts: []
   }
@@ -25,20 +25,21 @@ class ContactsApp extends React.Component {
     this.setState(state => ({
       contacts: state.contacts.filter(c => c.id !== contact.id)
     }))
+
+    ContactsAPI.remove(contact)
   }
 
   render() {
-    const { contacts } = this.state
-
     return (
       <BrowserRouter>
         <div className="app">
           <Route exact path="/" render={() => (
             <ListContacts
-              contacts={contacts}
+              contacts={this.state.contacts}
               onDeleteContact={this.removeContact}
             />
           )}/>
+
           <Route path="/create" render={({ history }) => (
             <CreateContact onCreateContact={contact => {
               this.addContact(contact)
@@ -47,8 +48,8 @@ class ContactsApp extends React.Component {
           )}/>
         </div>
       </BrowserRouter>
-    )
+    );
   }
 }
 
-export default ContactsApp
+export default App;
