@@ -1,0 +1,13 @@
+version: '2'
+services:
+  web:
+    build:
+      context: .
+    volumes:
+      - .:/app
+    ports:
+      - "5001:5001"
+    environment:
+      PORT: 5001
+      GOOGLE_BOOKS_API_KEY:
+    command: sh -c "node server.js"
